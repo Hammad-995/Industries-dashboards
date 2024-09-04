@@ -2,7 +2,8 @@
     padding: 0;
 }
 body{
-    overflow-y: hidden;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }
 
 p{
@@ -14,12 +15,19 @@ p{
 width: 320px;
 background-color: cornflowerblue;
 min-height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 3;
 }
 
 .dashboard-content{
-    width: calc(100% - 320px);
+    width: 100%;
     background-color: lightblue;
     min-height: 100vh;
+    position: relative;
+    margin-left: 320px;
+    overflow-x: hidden;
 }
 
 .site-logo{
@@ -52,8 +60,8 @@ min-height: 100vh;
 
 .btn-sidebar:focus,
 .btn-sidebar.focus {
-    color: #fff !important;
-    background-color: #3b047a !important;
+    color:#3b047a  !important;
+    background-color:  #fff!important;
     border: 1px solid #3b047a;
     border-radius: 5px;
     box-shadow: none;
@@ -70,6 +78,18 @@ min-height: 100vh;
     box-shadow: none;
     width: 270px;
     text-align: justify !important;
+}
+
+.btn-nav-mobile{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.btn-body-mob{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
 }
 /* The_Buttons_Of_Sidebar_End */
 
@@ -121,7 +141,6 @@ min-height: 100vh;
     border: 0;
     text-align: center;
 }
-
 .card-one{
     height: 100px;
     width: 100%;
@@ -129,14 +148,11 @@ min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
-
 .home-card-section{
     overflow-y: scroll;
     height: 90vh;
 }
-
 /* custom_scroll  */
 
 /* Change_The_Color_Of_Scroll_And_Bg_Here_For_FireFox  */
@@ -161,4 +177,17 @@ min-height: 100vh;
     height: 10px;
     background-color: #6495ed !important;
 }
+
 /* custom_scroll_end  */
+@media only screen and (max-device-width: 768px){
+    .sidebar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
+    .dashboard-content{
+        width: 100%;
+        margin-left: 0;
+    }
+}
